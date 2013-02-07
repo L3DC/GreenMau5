@@ -13,11 +13,13 @@ import java.awt.Robot;
 import java.awt.event.InputEvent;
 import com.leapmotion.leap.*;
 
-public class GreenMau5{
-  // t is the sleep time interval on the animation of the mouse movement.
-	// n is the number of intervals taken during the animation.
+public class MouseTesting{
+	// time is the sleep time interval on the animation of the mouse movement.
+	// smoothing is the number of intervals taken during the animation.
+	// count is the number of iterations the while loop must take before it selects a new frame.
 	final static int time = 0;
-	final static int smoothing = 200;
+	final static int smoothing = 1;
+	final static int count = 2;
 	Listener listener = new Listener();
 	Controller controller = new Controller();
 
@@ -49,8 +51,7 @@ public class GreenMau5{
 			if(counter == 1){
 				x2 = (int) finger.tipPosition().getX() + 100;
 				y2 = (int) finger.tipPosition().getY() - 75;
-			} else if(counter == 10){
-
+			} else if(counter == count){
 			
 					if(frame.fingers().count() == 1){
 						int xPos = (int) finger.tipPosition().getX() + 100;
